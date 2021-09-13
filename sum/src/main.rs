@@ -18,8 +18,6 @@
          .lock()
          .lines()
          .map(|_line| _line.ok().unwrap());
- 
-     /* add code here ... */
 
      let n: usize = lines
         .next().unwrap()
@@ -27,23 +25,25 @@
 
      let mut num_vector = lines
         .next().unwrap()
-        .split(" ")
-        .map(|x| x.parse::<u32>().unwrap())
-        .collect::<Vec<u32>>();
+        .split(" ")                                 //get list of components
+        .map(|x| x.parse::<u32>().unwrap())         //convert into unsigned integers
+        .collect::<Vec<u32>>();                     //turn map iterable into vector iterable
      
-     num_vector.sort();
+     num_vector.sort();                             //sort values from lowest to highest
 
-     eprintln!("Numbers: {:?}", num_vector);
-
+     eprintln!("Numbers: {:?}", num_vector);        
+     
+     //determine starting element for sum
      let sum_start;
      if n%2==0 {
         sum_start = n/2;
      } else {
-        sum_start = (n+1)/2;
+        sum_start = (n-1)/2;                        //(n-1) the change of sum_start has inverted effect on the amount of numbers included
      }
 
+     //calculate sum
      let mut sum: u32 = 0;
-     for i in sum_start-1..n {
+     for i in sum_start..n {
         sum += num_vector[i];
      }
  
