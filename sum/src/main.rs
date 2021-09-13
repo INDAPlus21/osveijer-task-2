@@ -25,11 +25,11 @@
 
      let mut num_vector = lines
         .next().unwrap()
-        .split(" ")                                 //get list of components
-        .map(|x| x.parse::<u32>().unwrap())         //convert into unsigned integers
-        .collect::<Vec<u32>>();                     //turn map iterable into vector iterable
+        .split(" ")                         //get list of components
+        .map(|x| x.parse::<u32>().unwrap()) //convert into unsigned integers
+        .collect::<Vec<u32>>();             //turn map iterable into vector iterable
      
-     num_vector.sort();                             //sort values from lowest to highest
+     num_vector.sort();                     //sort values from lowest to highest
 
      eprintln!("Numbers: {:?}", num_vector);        
      
@@ -38,7 +38,7 @@
      if n%2==0 {
         sum_start = n/2;
      } else {
-        sum_start = (n-1)/2;                        //(n-1) the change of sum_start has inverted effect on the amount of numbers included
+        sum_start = (n-1)/2;                //(n-1) because the change of sum_start has inverted effect on the amount of numbers included
      }
 
      //calculate sum
